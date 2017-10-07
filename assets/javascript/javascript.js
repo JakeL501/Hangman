@@ -1,3 +1,5 @@
+//I could not figure out how to move to a new word. So I just made a one time play game. 
+//I know how to add a score to an array and into the html but just simply could not solve the new word generator.
 var words = [
     "luke", 
     "leia", 
@@ -23,23 +25,23 @@ var words = [
 ];
 
 var random = Math.floor(Math.random() * words.length);
-var choosenWord = words[random];
+var chosenWord = words[random];
 var underline = [];
 var correctguess = [];
 var incorrectguess = [];
 var lives = -1;
 var wins = 0;
-console.log(choosenWord);
+console.log(chosenWord);
 
 var docunderline = document.getElementsByClassName("underline");
 var doccorrectguess = document.getElementsByClassName("rightGuess");
 var docincorrectguess = document.getElementsByClassName("wrongGuess");
 var docwins = document.getElementsByClassName("wins");
 var doclives = document.getElementsByClassName("lives");
-console.log(choosenWord);
+console.log(chosenWord);
 
 var generateunderline = () => {
-    for (var i = 0; i < choosenWord.length; i++) {
+    for (var i = 0; i < chosenWord.length; i++) {
         underline.push("_ ");
     }
     return underline;
@@ -49,15 +51,18 @@ console.log(generateunderline());
 document.addEventListener("keypress", (event) => {
     var keyword = String.fromCharCode(event.keyCode);
 
-    if (choosenWord.includes(keyword)) {
+    if (chosenWord.includes(keyword)) {
         correctguess.push(keyword);
-        underline[choosenWord.indexOf(keyword)] = keyword;
-        
+        underline[chosenWord.indexOf(keyword)] = keyword;
         docunderline[0].innerHTML = underline.join("");
         doccorrectguess[0].innerHTML = correctguess;
-        if (underline.join("") == choosenWord) {
-            wins++;
+        if (underline.join("") == chosenWord) {
+            alert("The Force is Strong in you! Refresh to start a new game!");
+        //     chosenWord.forEach(function (newWord, index){
+        //         console.log(index + 1 + ". " + newWord);
         }
+        //     )} attempt at creating a new word
+    
 
 
         console.log(correctguess);
@@ -76,12 +81,12 @@ document.addEventListener("keypress", (event) => {
     }
     var html =
 
-        "<p>Wins: " + wins + "</p>" +
-        "<p>Guess: " + lives + "</p>";
+        // "<p>Wins: " + wins + "</p>" +
+        "<p>Incorrect Guess Number: " + lives + "</p>";
 
 
 
-    // Set the inner HTML contents of the #game div to our html string
+    
     document.querySelector(".wins").innerHTML = html;
     
 });
