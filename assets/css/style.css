@@ -1,6 +1,9 @@
 body {
-    background-color: black;
+   background-color: black;
+   background-image: url("file:///C:/Users/jacob_000/Desktop/CodingBootCamp/projects/Hangman/assets/images/hyperdrive.jpg");
+    background-size: cover;
 }
+
 
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -16,11 +19,11 @@ h3 {
     margin: 25px;
     color: yellow;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .container {
-    background-color: black;
+    margin-top: 25px;
 }
 
 .underline,
